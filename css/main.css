@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #494a20;
+  background: #ff4193;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2659,4 +2659,20 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("http://img.ivsky.com/img/bizhi/pre/201107/24/mac_os_x_lion-001.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+  #footer a {
+    color: #eee;
+  }
+}
+.main-inner {
+  background: #fff;
+  opacity: 0.9;
 }
