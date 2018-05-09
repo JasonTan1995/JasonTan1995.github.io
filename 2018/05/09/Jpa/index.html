@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JasonTATam" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="SpringData Jpa SpringData Jpa的环境搭建 如果是Maven项目的话,添加以下依赖  123456&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.springframework.data&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;spring-data-jpa&amp;lt;/artifactId&amp;gt;			&amp;lt;">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringData Jpa">
+<meta property="og:url" content="http://www.jasontam.top/2018/05/09/Jpa/index.html">
+<meta property="og:site_name" content="JasonTATam">
+<meta property="og:description" content="SpringData Jpa SpringData Jpa的环境搭建 如果是Maven项目的话,添加以下依赖  123456&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.springframework.data&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;spring-data-jpa&amp;lt;/artifactId&amp;gt;			&amp;lt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="c:/Users/User/Pictures/SpringDataJpa%20接口继承关系.png">
+<meta property="og:image" content="c:/Users/User/Pictures/SpringDataJpa%20自定义接口中的方法.png">
+<meta property="og:updated_time" content="2018-05-09T05:56:21.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringData Jpa">
+<meta name="twitter:description" content="SpringData Jpa SpringData Jpa的环境搭建 如果是Maven项目的话,添加以下依赖  123456&amp;lt;dependency&amp;gt;			&amp;lt;groupId&amp;gt;org.springframework.data&amp;lt;/groupId&amp;gt;			&amp;lt;artifactId&amp;gt;spring-data-jpa&amp;lt;/artifactId&amp;gt;			&amp;lt;">
+<meta name="twitter:image" content="c:/Users/User/Pictures/SpringDataJpa%20接口继承关系.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jasontam.top/2018/05/09/Jpa/"/>
+
+
+
+
+
+  <title>SpringData Jpa | JasonTATam</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JasonTATam</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry, Stay Foolish</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jasontam.top/2018/05/09/Jpa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JasonTATam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JasonTATam">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringData Jpa</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T13:46:21+08:00">
+                2018-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="SpringData-Jpa"><a href="#SpringData-Jpa" class="headerlink" title="SpringData Jpa"></a>SpringData Jpa</h4><ol>
+<li><h5 id="SpringData-Jpa的环境搭建"><a href="#SpringData-Jpa的环境搭建" class="headerlink" title="SpringData Jpa的环境搭建"></a>SpringData Jpa的环境搭建</h5><ul>
+<li>如果是Maven项目的话,添加以下依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.9.0.RELEASE&lt;/version&gt;</span><br><span class="line">			&lt;!-- &lt;version&gt;1.10.5.RELEASE&lt;/version&gt; --&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>由于SpringData Jpa使用了动态代理(JDK&amp;Cglib),因此我们在DAO中只需提供接口即可实现与数据库进行交互.</p>
+</li>
+<li><p>Spring与Jpa 的整合(配置文件)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--因为Spring与Jpa的整合封装了entityManager.我们需要配置工厂,从工厂获取entityManager--&gt;</span><br><span class="line">&lt;bean id=&quot;entityManagerFactory&quot;</span><br><span class="line">		class=&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;&gt;</span><br><span class="line">&lt;!--注入连接池--&gt;</span><br><span class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</span><br><span class="line">&lt;!--对持久化对象进行扫描.读取持久化对象中的主角--&gt;</span><br><span class="line">		&lt;property name=&quot;packagesToScan&quot; value=&quot;com.itheima.entity&quot; /&gt;</span><br><span class="line">		&lt;property name=&quot;persistenceProvider&quot;&gt;</span><br><span class="line">			&lt;bean class=&quot;org.hibernate.jpa.HibernatePersistenceProvider&quot; /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;!--JPA的供应商适配器--&gt;</span><br><span class="line">		&lt;property name=&quot;jpaVendorAdapter&quot;&gt;</span><br><span class="line">			&lt;bean class=&quot;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&quot;&gt;</span><br><span class="line">				&lt;property name=&quot;generateDdl&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">				&lt;property name=&quot;database&quot; value=&quot;ORACLE&quot; /&gt;</span><br><span class="line">				&lt;property name=&quot;databasePlatform&quot; value=&quot;org.hibernate.dialect.Oracle10gDialect&quot; /&gt;</span><br><span class="line">				&lt;property name=&quot;showSql&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">			&lt;/bean&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">&lt;!--配置方言--&gt;</span><br><span class="line">		&lt;property name=&quot;jpaDialect&quot;&gt;</span><br><span class="line">			&lt;bean class=&quot;org.springframework.orm.jpa.vendor.HibernateJpaDialect&quot; /&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;jpaPropertyMap&quot;&gt;</span><br><span class="line">			&lt;map&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.query.substitutions&quot; value=&quot;true 1, false 0&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.default_batch_fetch_size&quot; value=&quot;16&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.max_fetch_depth&quot; value=&quot;2&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.enable_lazy_load_no_trans&quot; value=&quot;true&quot;&gt;&lt;/entry&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.generate_statistics&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.bytecode.use_reflection_optimizer&quot;</span><br><span class="line">					value=&quot;true&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.cache.use_second_level_cache&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">				&lt;entry key=&quot;hibernate.cache.use_query_cache&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">			&lt;/map&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备持久化对象(实体类)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="SpringData-Jpa入门-简单实用"><a href="#SpringData-Jpa入门-简单实用" class="headerlink" title="SpringData Jpa入门(简单实用)"></a>SpringData Jpa入门(简单实用)</h5><ul>
+<li><p>2.1  首先创建Dao的接口</p>
+<p>==这里的Dao接口不需要填写注解@Repository的原因是因为JpaRepository接口的实现类SimpleJpaRepository已经帮我们填写了==</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DeptDao</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Dept</span>,<span class="title">String</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2.2  根据ID查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:applicationContext.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeptTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DeptDao deptDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span> <span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(deptDao);</span><br><span class="line">        System.out.println(deptDao.getClass());</span><br><span class="line">        Dept dept = deptDao.findOne(<span class="string">"100"</span>);</span><br><span class="line">        System.out.println(dept);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2.3 查询所有-findAll</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">      List&lt;Dept&gt; deptList =  deptDao.findAll();</span><br><span class="line">      <span class="keyword">for</span> (Dept dept : deptList) &#123;</span><br><span class="line">          System.out.println(dept);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2.4 添加 - save</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">saveDept</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Dept dept = <span class="keyword">new</span> Dept();</span><br><span class="line">       dept.setDeptName(<span class="string">"研发部"</span>);</span><br><span class="line">       Dept parent = <span class="keyword">new</span> Dept();</span><br><span class="line">       parent.setDeptId(<span class="string">"101"</span>);</span><br><span class="line">       dept.setDept(parent);</span><br><span class="line">       dept.setState(<span class="number">1</span>);</span><br><span class="line">       dept.setDeptId(<span class="string">"297e595a61da8d3e0161da8d43ba0000"</span>);</span><br><span class="line">       deptDao.save(dept);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2.5 删除 - delete</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Dept dept = <span class="keyword">new</span> Dept();</span><br><span class="line">       dept.setDeptId(<span class="string">"402829816256c9ad016256c9b3480000"</span>);</span><br><span class="line">       deptDao.delete(dept);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="注意-更新与保存使用的是同一个方法save-区分更新与保存-添加用户-的依据是-传入的对象是否有ID属性值并且该ID在数据库是否存在-如果有ID-数据库也存在该ID-该操作为更新-反之-则为保存-添加"><a href="#注意-更新与保存使用的是同一个方法save-区分更新与保存-添加用户-的依据是-传入的对象是否有ID属性值并且该ID在数据库是否存在-如果有ID-数据库也存在该ID-该操作为更新-反之-则为保存-添加" class="headerlink" title="==注意:更新与保存使用的是同一个方法save(),区分更新与保存(添加用户)的依据是,传入的对象是否有ID属性值并且该ID在数据库是否存在.如果有ID,数据库也存在该ID,该操作为更新;反之,则为保存(添加)=="></a><strong>==注意:更新与保存使用的是同一个方法save(),区分更新与保存(添加用户)的依据是,传入的对象是否有ID属性值并且该ID在数据库是否存在.如果有ID,数据库也存在该ID,该操作为更新;反之,则为保存(添加)==</strong></h5><ol>
+<li><h5 id="SpringData-Jpa-源码及执行流程分析"><a href="#SpringData-Jpa-源码及执行流程分析" class="headerlink" title="SpringData Jpa(源码及执行流程分析)"></a>SpringData Jpa(源码及执行流程分析)</h5><p><img src="C:\Users\User\Pictures\SpringDataJpa 接口继承关系.png" alt="SpringDataJpa 接口继承关系"></p>
+<ul>
+<li><p>因为在SpringData Jpa 里面使用了动态代理的技术,所以我们只需要编写接口继承JpaRespository便可以使用基本的增删改差的操作.</p>
+</li>
+<li><p>3.1 在测试类中的findOne方法打上断点.</p>
+</li>
+<li><p>3.2 当断点通过findOne方法后,进入到JdkDynamicAopProxy(代理工厂中)为我们生成代理对象.</p>
+</li>
+<li><p>3.3 代理概念:关于代理,是会在程序运行的期间动态生成类的字节码;</p>
+<p>​      代理作用:在原有的目标对象方法的基础上,添加代码;对原有的方法进行加强.</p>
+<ul>
+<li>Jave的两种代理方法:该两种技术的不同之处就是JDK中需要用到接口来生成代理对象,而Cglib则是通过继承来生成代理对象.因此使用了Cglib技术的被代理对象的类不能使用final;<ul>
+<li>JDK(静态代理&amp;动态代理)</li>
+<li>Cglibe代理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="SpringData-Jpa-进阶"><a href="#SpringData-Jpa-进阶" class="headerlink" title="SpringData Jpa (进阶)"></a>SpringData Jpa (进阶)</h5><ul>
+<li><p><strong>4.1 分页的使用findAll(Pageable pageable)</strong></p>
+<p>==这里需要注意的是:分页中的起始页数在JPA中规定是从0开始的,但页面中通常是会传1过来.因此在这里要处理一下==</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">page</span> <span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="comment">//分页查询,定义从第几页开始查询,显示多少条记录</span></span><br><span class="line">      <span class="keyword">int</span> start = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">int</span> size = <span class="number">5</span>;</span><br><span class="line">      Pageable pageable = <span class="keyword">new</span> PageRequest(start-<span class="number">1</span>,size);</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//页面要显示的信息</span></span><br><span class="line">      Page&lt;Dept&gt; deptPage = deptDao.findAll(pageable);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//页面的总记录数</span></span><br><span class="line">      <span class="keyword">long</span> totalElements = deptPage.getTotalElements();</span><br><span class="line">      <span class="comment">//获取页面显示记录数的总页数</span></span><br><span class="line">      <span class="keyword">int</span> totalPages = deptPage.getTotalPages();</span><br><span class="line">      </span><br><span class="line">      System.out.println(totalElements);</span><br><span class="line">      System.out.println(totalPages);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>4.2 dao接口自定义方法</strong></p>
+<ul>
+<li>以下为官文文档中对自定义接口方法的说明</li>
+<li>我们定义的方法需要按照指定的格式:==findBy+持久化对象中的属性并且为驼峰格式.==</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="C:\Users\User\Pictures\SpringDataJpa 自定义接口中的方法.png" alt="SpringDataJpa 自定义接口中的方法"></p>
+<ul>
+<li><p>Dao接口</p>
+<p>==这里建议使用List集合来接收数据.如果查询所得的数据有多个,而接收数据的类型却不是List类型会报错.因此为了稳定,这里建议使用List集合类型来接收数据==</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DeptDao</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Dept</span>,<span class="title">String</span>&gt;</span>&#123;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//1. 按照部门名称查询</span><br><span class="line">List&lt;Dept&gt; findByDeptName(String deptName);</span><br><span class="line">//2. 按照部门名称和状态查询</span><br><span class="line">List&lt;Dept&gt; findByDeptNameAndState(String deptName,Integer state);</span><br><span class="line">//3. 按照部门名称模糊查询</span><br><span class="line">List&lt;Dept&gt; findByDeptNameLike(String deptName);</span><br></pre></td></tr></table></figure>
+<p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- Dao 接口测试类</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">  @RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">  @ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)</span><br><span class="line">  public class DeptTest2 &#123;</span><br><span class="line"></span><br><span class="line">      @Autowired</span><br><span class="line">      private DeptDao deptDao;</span><br><span class="line"></span><br><span class="line">      //按照部门名称查询</span><br><span class="line">      @Test</span><br><span class="line">      public void findByDeptName()&#123;</span><br><span class="line">          List&lt;Dept&gt; deptList = deptDao.findByDeptName(&quot;网络部&quot;);</span><br><span class="line">          for (Dept dept : deptList) &#123;</span><br><span class="line">              System.out.println(dept);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      //按照部门名称和状态查询</span><br><span class="line">      @Test</span><br><span class="line">      public void findByDeptNameAndState()&#123;</span><br><span class="line">          List&lt;Dept&gt; deptList = deptDao.findByDeptNameAndState(&quot;市场部&quot;, 1);</span><br><span class="line">          System.out.println(deptList);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      //按照部门名称模糊查询</span><br><span class="line">      @Test</span><br><span class="line">      public void findByDeptNameLike()&#123;</span><br><span class="line">          List&lt;Dept&gt; like = deptDao.findByDeptNameLike(&quot;%总%&quot;);</span><br><span class="line">          for (Dept dept : like) &#123;</span><br><span class="line">              System.out.println(dept);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- **4.3 JPQL(Java Persist Query Language) Java 持久化查询语言--跟HQL差不多**</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line">@Query(value=&quot;from Dept where state =?2 and state =?2 deptName=?1&quot;,nativeQuery =false)</span><br><span class="line">List&lt;Dept&gt; findByCondition(String deptName,Integer state);</span><br></pre></td></tr></table></figure>
+<p>  ==注意:这里占位符的索引从1开始,并且要与参数列表中的顺序一一对应.==</p>
+<ul>
+<li><p><strong>4.4 原生SQL语句</strong></p>
+<ul>
+<li><p>开启对原生SQL语句的支持</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value=<span class="string">"select * from DEPT_P where DEPT_NAME=? and STATE=?"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function">List&lt;Dept&gt; <span class="title">findByCondition2</span><span class="params">(String deptName,Integer state)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>==注意:这里的占位符与参数列表必须一一对应.这里没有索引的定义了==</p>
+<ul>
+<li><p><strong>4.5JPQL语句之更新</strong></p>
+<ul>
+<li><p>执行更新操作前的准备</p>
+<blockquote>
+<p>1)JPQL更新,必须在接口方法上添加注解@Modifying,否则会报错:</p>
+<p>Not supported for DML operations </p>
+<p>2) JPQL更新,更新需要事务,需要在测试方法或接口方法上添加注解:@Transactional,否则会报错:</p>
+<p>TransactionRequiredException:Executing an update/delete query</p>
+<p>3)如果操作要反映到数据库,需要提交事务,需要在测试方法或接口方法上添加注解:</p>
+<p>@Rollback(false) 代表在测试时提交事务.</p>
+<p>@Rollback(false)     Committed transaction for test</p>
+<p> @Rollback(true)       Rolled backtransaction for test</p>
+<p>​</p>
+</blockquote>
+<p>​</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value=<span class="string">"update Dept set deptName = ?1 where deptId= ?2"</span>,nativeQuery = <span class="keyword">false</span>)</span><br><span class="line">    <span class="meta">@Modifying</span></span><br><span class="line">    <span class="meta">@Rollback</span>(<span class="keyword">false</span>)</span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(String deptName,String deptId)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 5. SpringData Jpa(条件查询)</span><br><span class="line"></span><br><span class="line">- 5.1 JpaSpecificationExecutor动态条件查询</span><br><span class="line"></span><br><span class="line">  &gt; - 问题:如果是使用dao接口自定义方法来进行条件查询的话,在某些情况下会两种情况,一种是该条件有值,另一种是该条件没有值为空.所以在为了应对这两种情况就需要在接口中定义两个方法了.如果条件越来越多,就意味着越来越麻烦了.</span><br><span class="line">  &gt;</span><br><span class="line">  &gt;   ​</span><br><span class="line">  &gt;</span><br><span class="line">  &gt; - 解决方法:使用JpaSpecificationExecutor动态条件查询接口.</span><br><span class="line">  &gt;</span><br><span class="line">  &gt; #####  </span><br><span class="line"></span><br><span class="line">  - 5.2 多条件测试</span><br><span class="line"></span><br><span class="line">    在这里需要用到一个接口,并且这个接口由我们自己来实现.</span><br><span class="line"></span><br><span class="line">    &gt; Specification&lt;T&gt;;</span><br><span class="line"></span><br><span class="line">    在这个接口需要重写一个方法</span><br><span class="line"></span><br><span class="line">    ```java</span><br><span class="line">    public Predicate toPredicate(Root&lt;Dept&gt;root,CriteriaQuery&lt;?&gt;query,CriteriaBuilder cb)&#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>5.3 参数的含义</p>
+</li>
+</ul>
+<p>| Param |        mean         |<br>| :—: | :—————–: |<br>| root  |  通过root可以获取查询的属性对象  |<br>| query | query对Criteria查询的支持 |<br>|  cb   |    cb条件构造器,构造条件     |</p>
+<ul>
+<li><p>5.4 实现方法,并进行查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">	   <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//从页面传递数据过来</span></span><br><span class="line">        String deptName = <span class="string">"市场部"</span>;</span><br><span class="line">        Integer state = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//实现接口specification</span></span><br><span class="line">        Specification&lt;Dept&gt; spec = <span class="keyword">new</span> Specification&lt;Dept&gt;() &#123;</span><br><span class="line">    </span><br><span class="line">            <span class="comment">//实现specification接口中的方法</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Predicate <span class="title">toPredicate</span><span class="params">(Root&lt;Dept&gt; root, CriteriaQuery&lt;?&gt; criteriaQuery, CriteriaBuilder criteriaBuilder)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//定义一个Predicate集合</span></span><br><span class="line">                List&lt;Predicate&gt; predicateList = <span class="keyword">new</span> ArrayList&lt;Predicate&gt;();</span><br><span class="line">    </span><br><span class="line">                <span class="comment">//通过root获取查询的对象属性</span></span><br><span class="line">                <span class="keyword">if</span> (StringUtils.isNoneBlank(deptName)) &#123;</span><br><span class="line">                    Predicate p1 = criteriaBuilder.equal(root.get(<span class="string">"deptName"</span>).as(String.class), deptName);</span><br><span class="line">                    predicateList.add(p1);</span><br><span class="line">                &#125;</span><br><span class="line">    </span><br><span class="line">                <span class="keyword">if</span> (state != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    Predicate p2 = criteriaBuilder.equal(root.get(<span class="string">"state"</span>).as(Integer.class), state);</span><br><span class="line">                    predicateList.add(p2);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//新建一个Predicate数组</span></span><br><span class="line">                Predicate[] predicate = <span class="keyword">new</span> Predicate[predicateList.size()];</span><br><span class="line">                <span class="comment">//将集合拼接成数组,因为criteriaBuilder.and()方法里面可以传递可变参数.也就是说数组也可以</span></span><br><span class="line">                <span class="keyword">return</span> criteriaBuilder.and(predicateList.toArray(predicate));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">                List&lt;Dept&gt; list = deptDao.findAll(spec);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">for</span> (Dept dept : list) &#123;</span><br><span class="line">            System.out.println(dept);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>​
+</code></pre><p>  ​</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="你的来比力的注册uid"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">JasonTATam</p>
+              <p class="site-description motion-element" itemprop="description">银河街角，时光路口</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringData-Jpa"><span class="nav-number">1.</span> <span class="nav-text">SpringData Jpa</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringData-Jpa的环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">SpringData Jpa的环境搭建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringData-Jpa入门-简单实用"><span class="nav-number">1.2.</span> <span class="nav-text">SpringData Jpa入门(简单实用)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意-更新与保存使用的是同一个方法save-区分更新与保存-添加用户-的依据是-传入的对象是否有ID属性值并且该ID在数据库是否存在-如果有ID-数据库也存在该ID-该操作为更新-反之-则为保存-添加"><span class="nav-number">1.3.</span> <span class="nav-text">==注意:更新与保存使用的是同一个方法save(),区分更新与保存(添加用户)的依据是,传入的对象是否有ID属性值并且该ID在数据库是否存在.如果有ID,数据库也存在该ID,该操作为更新;反之,则为保存(添加)==</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringData-Jpa-源码及执行流程分析"><span class="nav-number">1.4.</span> <span class="nav-text">SpringData Jpa(源码及执行流程分析)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpringData-Jpa-进阶"><span class="nav-number">1.5.</span> <span class="nav-text">SpringData Jpa (进阶)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JasonTATam</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
