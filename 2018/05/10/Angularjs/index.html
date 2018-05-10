@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Angularjs(基础语法) | JasonTATam</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="JasonTATam">
+    <meta name="author" content="JasonTATam">
+    <meta name="description" content="be Strange,be Smart" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="JasonTATam" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Spring/" class="animsition-link">Spring<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/dubbo/" class="animsition-link">dubbo<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">JasonTATam</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-05-10T15:30:03.000Z" itemprop="datePublished">
+          2018-05-10
+      </time>
+    
+    
+    | 
+    <a href='/tags/js/'>js</a>
+    
+    
+</span>
+                <h1>Angularjs(基础语法)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="Angular-js-基础语法"><a href="#Angular-js-基础语法" class="headerlink" title="Angular.js 基础语法"></a>Angular.js 基础语法</h3><p><img src="https://s1.ax1x.com/2018/05/10/C0YOPg.png" alt="C0YOPg.png"></p>
+<h4 id="Angular-js-四大特征"><a href="#Angular-js-四大特征" class="headerlink" title="Angular.js 四大特征"></a>Angular.js 四大特征</h4><ol>
+<li><h5 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h5><p>Angular遵循软件工程的MVC模式,并鼓励展现，数据，和逻辑组件之间的松耦合.通过依赖注入（dependency injection），Angular为客户端的Web应用带来了传统服务端的服务，例如独立于视图的控制。 因此，后端减少了许多负担，产生了更轻的Web应用。</p>
+<p>Model:数据,其实就是angular变量($scope.XX);</p>
+<p>View: 数据的呈现,Html+Directive(指令);</p>
+<p>Controller:操作数据,就是function,数据的增删改查;</p>
+<p><img src="https://s1.ax1x.com/2018/05/10/C0Yvxs.png" alt="C0Yvxs.png"></p>
+</li>
+<li><h5 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h5><p>AngularJS是建立在这样的信念上的：即声明式编程应该用于构建用户界面以及编写软件构建，而指令式编程非常适合来表示业务逻辑。框架采用并扩展了传统HTML，通过双向的数据绑定来适应动态内容，双向的数据绑定允许模型和视图之间的自动同步。因此，AngularJS使得对DOM的操作不再重要并提升了可测试性</p>
+</li>
+<li><h5 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h5><p>依赖注入(Dependency Injection,简称DI)是一种设计模式, 指某个对象依赖的其他对象无需手工创建，只需要“吼一嗓子”，则此对象在创建时，其依赖的对象由框架来自动创建并注入进来,其实就是最少知识法则;模块中所有的service和provider两类对象，都可以根据形参名称实现DI.</p>
+<a id="more"></a> 
+</li>
+<li><h5 id="模块化设计"><a href="#模块化设计" class="headerlink" title="模块化设计"></a>模块化设计</h5><p>高内聚低耦合法则：</p>
+<p>1)官方提供的模块  ng、ngRoute、ngAnimate</p>
+<p>  2)用户自定义的模块 angular.module(‘模块名’,[ ])</p>
+</li>
+</ol>
+<h3 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h3><h5 id="表达式"><a href="#表达式" class="headerlink" title="表达式:"></a>表达式:</h5><p>==语法格式：|==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS表达式&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">	&lt;body ng-app&gt;</span></span><br><span class="line"><span class="regexp">		&#123;&#123;100 + 100 - 100&#125;&#125;&lt;br/</span>&gt;</span><br><span class="line">		&#123;&#123;<span class="number">100</span> * <span class="number">100</span>&#125;&#125;&lt;br/&gt;</span><br><span class="line">		&#123;&#123;<span class="number">100</span> &gt; <span class="number">100</span>&#125;&#125;&lt;br/&gt;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>ng-app 指令定义了 AngularJS 应用的根元素，在根元素的所有子元素中用到指令，angularJs会自动识别。</p>
+<p>也可以放在<div ng-app=""></div>里面.但作用范围只在div标签里.</p>
+<p>==ng-app 指令在网页加载完毕时会自动初始化应用中的angularJS的指令。==</p>
+<h5 id="双向绑定-1"><a href="#双向绑定-1" class="headerlink" title="双向绑定"></a>双向绑定</h5><p>==语法格式：ng-model=”变量名”|ng-model=”对象.变量名”==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS双向绑定&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">	&lt;body ng-app&gt;</span></span><br><span class="line"><span class="regexp">		姓名：&lt;input type="text" ng-model="name"/</span>&gt;&lt;br/&gt;</span><br><span class="line">		性别：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"user.sex"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		年龄：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"user.age"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		&#123;&#123;name&#125;&#125;，您好！，性别：&#123;&#123;user.sex&#125;&#125;，年龄：&#123;&#123;user.age&#125;&#125;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>==ng-model  用于绑定input文本框中的内容.并放置到$scope中.==</p>
+<h5 id="初始化指令"><a href="#初始化指令" class="headerlink" title="初始化指令"></a>初始化指令</h5><p>==语法格式：ng-init=”变量名=’变量值’;变量名=’变量值’”==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS变量初始化&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">	&lt;body ng-app ng-init="name='小明';user.sex='男';user.age=18"&gt;</span></span><br><span class="line"><span class="regexp">		姓名：&lt;input type="text" ng-model="name"/</span>&gt;&lt;br/&gt;</span><br><span class="line">		性别：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"user.sex"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		年龄：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"user.age"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		&#123;&#123;name&#125;&#125;，您好！，性别：&#123;&#123;user.sex&#125;&#125;，年龄：&#123;&#123;user.age&#125;&#125;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h5><h5 id="定义模块语法格式：var-变量名-angular-module-“模块名”"><a href="#定义模块语法格式：var-变量名-angular-module-“模块名”" class="headerlink" title="==定义模块语法格式：var 变量名 = angular.module(“模块名”, []);=="></a>==定义模块语法格式：var 变量名 = angular.module(“模块名”, []);==</h5><p>​    定义控制器语法格式：<br>==模块变量名.controller(“控制器名”, function($scope){});==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS控制器&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义myApp模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line"></span><br><span class="line">			<span class="comment">/** 为myApp模块添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">/** 定义add方法 */</span></span><br><span class="line">				$scope.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="built_in">parseInt</span>($scope.x) + <span class="built_in">parseInt</span>($scope.y);</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		x：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"x"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		y：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"y"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		运算结果：&#123;&#123;add()&#125;&#125;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>$scope 贯穿整个 AngularJS App应用,它与数据模型相关联,同时也是表达式执行的上下文.有了$scope 就在视图和控制器之间建立了一个通道,基于作用域视图在修改数据时会立刻更新 $scope,同样的$scope 发生改变时也会立刻重新渲染视图.</p>
+<h5 id="事件指令"><a href="#事件指令" class="headerlink" title="事件指令"></a>事件指令</h5><ul>
+<li>ng-click：单击事件</li>
+<li>ng-dblclick：双击事件</li>
+<li>ng-blur：失去焦点事件</li>
+<li>ng-focus：获取焦点事件</li>
+<li>ng-change：对应onchange改变事件</li>
+<li>ng-keydown：键盘按键按下事件</li>
+<li>ng-keyup：键盘按键按下并松开</li>
+<li>ng-keypress：同上</li>
+<li>ng-mousedown：鼠标按下事件</li>
+<li>ng-mouseup：鼠标按下弹起</li>
+<li>ng-mouseenter：鼠标进入事件</li>
+<li>ng-mouseleave：鼠标离开事件</li>
+<li>ng-mousemove：鼠标移动事件</li>
+<li>ng-mouseover：鼠标进入事件</li>
+</ul>
+<p>==语法格式：ng-xxx=”控制器中定义的方法名();”;==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS事件指令&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">/** 定义方法 */</span></span><br><span class="line">				$scope.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					$scope.count = <span class="built_in">parseInt</span>($scope.x) + </span><br><span class="line"><span class="built_in">parseInt</span>($scope.y);</span><br><span class="line">				&#125;;</span><br><span class="line">				<span class="comment">/** 定义方法 */</span></span><br><span class="line">				$scope.blur = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					alert($scope.x);</span><br><span class="line">				&#125;;</span><br><span class="line">				<span class="comment">/** 定义方法 */</span></span><br><span class="line">				$scope.keyup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					alert($scope.y);</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		x：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"x"</span> ng-blur=<span class="string">"blur();"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		y：&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"y"</span> ng-keyup=<span class="string">"keyup()"</span>/&gt;&lt;br/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"button"</span> value=<span class="string">"计算"</span> ng-click=<span class="string">"add();"</span>/&gt;</span><br><span class="line">		运算结果：&#123;&#123;count&#125;&#125;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>说明：ng-xxx事件指令，绑定控制器的某个方法。</p>
+<h5 id="循环数组"><a href="#循环数组" class="headerlink" title="循环数组"></a>循环数组</h5><p>==语法格式：ng-repeat=”变量名 in 集合或数组”;==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS循环数组&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">/** 定义数组 */</span></span><br><span class="line">				$scope.list = [<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">500</span>];</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		&lt;ul&gt;</span><br><span class="line">			&lt;li ng-repeat=<span class="string">"item in list"</span>&gt;</span><br><span class="line">				&#123;&#123;item&#125;&#125;</span><br><span class="line">			&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">		&lt;/u</span>l&gt;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>==说明：这里的ng-repeat指令用于循环数组变量。==</p>
+<h5 id="循环对象数组"><a href="#循环对象数组" class="headerlink" title="循环对象数组"></a>循环对象数组</h5><p>$index：获取迭代时的索引号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS循环对象数组&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">/** 定义对象数组 */</span></span><br><span class="line">				$scope.list =[</span><br><span class="line">		  			&#123;<span class="attr">name</span> : <span class="string">"小明"</span>, <span class="attr">sex</span> : <span class="string">"男"</span>, <span class="attr">age</span> : <span class="number">30</span>&#125;,</span><br><span class="line">					&#123;<span class="attr">name</span> : <span class="string">"中明"</span>, <span class="attr">sex</span> : <span class="string">"女"</span>, <span class="attr">age</span> : <span class="number">26</span>&#125;,</span><br><span class="line">					&#123;<span class="attr">name</span> : <span class="string">"大明"</span>, <span class="attr">sex</span> : <span class="string">"男"</span>, <span class="attr">age</span> : <span class="number">20</span>&#125;];</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		&lt;table border=<span class="string">"1"</span>&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;th&gt;编号&lt;<span class="regexp">/th&gt;</span></span><br><span class="line"><span class="regexp">				&lt;th&gt;姓名&lt;/</span>th&gt;</span><br><span class="line">				&lt;th&gt;性别&lt;<span class="regexp">/th&gt;</span></span><br><span class="line"><span class="regexp">				&lt;th&gt;年龄&lt;/</span>th&gt;</span><br><span class="line">			&lt;<span class="regexp">/tr&gt;</span></span><br><span class="line"><span class="regexp">			&lt;tr ng-repeat="u in list"&gt;</span></span><br><span class="line"><span class="regexp">				&lt;td&gt;&#123;&#123;$index + 1&#125;&#125;&lt;/</span>td&gt;</span><br><span class="line">				&lt;td&gt;&#123;&#123;u.name&#125;&#125;&lt;<span class="regexp">/td&gt;</span></span><br><span class="line"><span class="regexp">				&lt;td&gt;&#123;&#123;u.sex&#125;&#125;&lt;/</span>td&gt;</span><br><span class="line">				&lt;td&gt;&#123;&#123;u.age&#125;&#125;&lt;<span class="regexp">/td&gt;</span></span><br><span class="line"><span class="regexp">			&lt;/</span>tr&gt;</span><br><span class="line">		&lt;<span class="regexp">/table&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="条件指令"><a href="#条件指令" class="headerlink" title="条件指令"></a>条件指令</h5><p>语法格式：ng-if=”条件表达式”;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;AngularJS条件指令&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">/** 定义对象 */</span></span><br><span class="line">				$scope.user = &#123;<span class="attr">age</span> : <span class="number">20</span>&#125;;</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		&lt;h2 ng-<span class="keyword">if</span>=<span class="string">"user.age &lt;= 20"</span>&gt;&#123;&#123;user.age&#125;&#125;&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h5><ul>
+<li><p>ng-true-value=”true”: 选中值</p>
+</li>
+<li><p>ng-false-value=”false”: 未选中值</p>
+</li>
+<li><p>ng-checked=”true|false”: 是否选中复选框 </p>
+<p>通过在scope中的定义的值.再在复选框中定义一个选中事件来控制复选框的状态.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;checkbox&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">// 第一个复选框的值</span></span><br><span class="line">				$scope.value1 = <span class="literal">false</span>;</span><br><span class="line">				<span class="comment">// 第二个复选框的值</span></span><br><span class="line">				$scope.value2 = <span class="string">"2"</span>;</span><br><span class="line">				<span class="comment">// 全选复选框的值</span></span><br><span class="line">				$scope.ck = <span class="literal">false</span>;</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> </span><br><span class="line">				ng-model=<span class="string">"value1"</span>/&gt;<span class="number">1</span>&lt;br/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> </span><br><span class="line">				ng-<span class="literal">true</span>-value=<span class="string">"1"</span></span><br><span class="line">				ng-<span class="literal">false</span>-value=<span class="string">"2"</span></span><br><span class="line">				ng-model=<span class="string">"value2"</span>/&gt;<span class="number">2</span>&lt;br/&gt;</span><br><span class="line">		&#123;&#123;value1&#125;&#125; ---&gt; &#123;&#123;value2&#125;&#125;</span><br><span class="line">		&lt;hr/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> ng-model=<span class="string">"ck"</span>/&gt;全选&lt;br/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> ng-checked=<span class="string">"ck"</span>/&gt;广州&lt;br/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> ng-checked=<span class="string">"ck"</span>/&gt;深圳&lt;br/&gt;</span><br><span class="line">		&lt;input type=<span class="string">"checkbox"</span> ng-checked=<span class="string">"ck"</span>/&gt;东莞&lt;br/&gt;</span><br><span class="line">	&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h5 id="下拉列表框"><a href="#下拉列表框" class="headerlink" title="下拉列表框"></a>下拉列表框</h5><ul>
+<li>ng-options=”元素变量.键 as 元素变量.键 for 元素变量in 数组”：选项值表达式绑定</li>
+<li>ng-selected=”true|false”: 是否选中下拉列表框指定的选项</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;title&gt;select&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">		&lt;meta charset="UTF-8"/</span>&gt;</span><br><span class="line">		&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>/&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/angular.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">		&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">			<span class="comment">/** 定义模块 */</span></span><br><span class="line">			<span class="keyword">var</span> myApp = angular.module(<span class="string">"myApp"</span>,[]);</span><br><span class="line">			<span class="comment">/** 模块中添加控制器 */</span></span><br><span class="line">			myApp.controller(<span class="string">"myController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">				<span class="comment">// 定义下拉列表框需要的数据变量</span></span><br><span class="line">				$scope.cities = [&#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>:<span class="string">'广州市'</span>&#125;,</span><br><span class="line">				                 &#123;<span class="attr">id</span>:<span class="number">2</span>, <span class="attr">name</span>:<span class="string">'深圳市'</span>&#125;,</span><br><span class="line">				                 &#123;<span class="attr">id</span>:<span class="number">3</span>, <span class="attr">name</span>:<span class="string">'珠海市'</span>&#125;,</span><br><span class="line">				                 &#123;<span class="attr">id</span>:<span class="number">4</span>, <span class="attr">name</span>:<span class="string">'东莞市'</span>&#125;];</span><br><span class="line">				</span><br><span class="line">			&#125;);</span><br><span class="line">		&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>head&gt;</span><br><span class="line">	&lt;body ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myController"</span>&gt;</span><br><span class="line">		&lt;select ng-model=<span class="string">"code"</span> </span><br><span class="line">ng-options=<span class="string">"city.id as city.name for city in cities"</span>&gt;</span><br><span class="line">			&lt;option value=<span class="string">""</span>&gt;==请选择城市==&lt;/option&gt;</span><br><span class="line">		&lt;<span class="regexp">/select&gt;</span></span><br><span class="line"><span class="regexp">		&#123;&#123;code&#125;&#125;</span></span><br><span class="line"><span class="regexp">		&lt;hr/</span>&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;select&gt;</span><br><span class="line">			&lt;option value=<span class="string">"1"</span>&gt;中国&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">			&lt;option value="2" ng-selected="true"&gt;美国&lt;/</span>option&gt;</span><br><span class="line">		&lt;<span class="regexp">/select&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/05/09/dubbo/">
+        dubbo(概述) →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By JasonTATam. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
