@@ -455,10 +455,13 @@ $timeout服务语法格式:$timeout(函数,间隔时间(单位为毫秒));但该
                 <div class="col-md-8">
                     <p>
                       
-                        SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification因为如果是使用JPQL或者SQL查询的话,要另外在Dao接口中的方法定义,而如果使用Specification的话,我们只需要封装好条件,再把条件放进Dao中的findAll方法即可.
-下面通过一个栗子来学习一下吧!
-
-例如:我们要在货物表中根据合同的ID查询货物.但显示的数据中包括合同表中
+                        <h4 id="SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification"><a href="#SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification" class="headerlink" title="SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification"></a>SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification</h4><p>因为如果是使用JPQL或者SQL查询的话,要另外在Dao接口中的方法定义,而如果使用Specification的话,我们只需要封装好条件,再把条件放进Dao中的findAll方法即可.</p>
+<p>下面通过一个栗子来学习一下吧!</p>
+<blockquote>
+<p>例如:我们要在货物表中根据合同的ID查询货物.但显示的数据中包括合同表中的数据.这时我们就需要同时查询合同表和货物表两张表.</p>
+<p>原生的SQL语句:select * from contract_product_c where contract_id=’’;</p>
+<p>JPA:需要两表连接查询:from ContractProduct cp where cp.contract.id = ?;</p>
+</blockquote>
                       
                     </p>
                     
