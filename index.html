@@ -95,6 +95,8 @@
 				  	
 				    <li><a href="/categories/CAS/" class="animsition-link">CAS<small>(1)</small></a></li>
 				    
+				    <li><a href="/categories/Java/" class="animsition-link">Java<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/Spring/" class="animsition-link">Spring<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/Web服务器/" class="animsition-link">Web服务器<small>(1)</small></a></li>
@@ -209,6 +211,49 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/14/fail-fast/">fail-fast</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-14T13:25:58.000Z" itemprop="datePublished">
+          2018-08-14
+      </time>
+    
+    
+    | 
+    <a href='/tags/Java/'>Java</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>  平常在使用集合的时候肯定会遇到过遍历删除集合中的某些元素，哪么在进行操作的时候大家有<br>没有遇到过什么问题呢？最近在使用集合进行遍历删除元素的时候，我就碰到了这个异常：java.util.ConcurrentModificationException。该异常是一个并发修改异常，于是引起我了的思考。</p>
+<p>平常会使用遍历删除的几种方式：</p>
+<ol>
+<li><strong>通过增强for删除符合要求的元素(一个或者多个)</strong></li>
+</ol>
+<ul>
+<li><p>会出现异常java.util.ConcurrentModificationException</p>
+</li>
+<li><p>但假如加上break的话异常就不会出现，因为不会影响到后续的元素。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/14/fail-fast/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
