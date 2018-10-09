@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018/10 | JasonT</title>
+  <title>JasonT</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -209,50 +209,99 @@
 <!-- // End height spacing helper -->
 
 <!-- ============================ END Hero Image =========================== -->
+<!-- ============================ Content =========================== -->
 
-
-
-
-<section id="services">
+<section id="intro">
     <div class="container">
+        
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/10/Many/">SpringData Jpa(多表关联查询)</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-10T05:59:56.000Z" itemprop="datePublished">
+          2017-09-10
+      </time>
+    
+    
+    | 
+    <a href='/tags/Jpa/'>Jpa</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h4 id="SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification"><a href="#SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification" class="headerlink" title="SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification"></a>SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification</h4><p>因为如果是使用JPQL或者SQL查询的话,要另外在Dao接口中的方法定义,而如果使用Specification的话,我们只需要封装好条件,再把条件放进Dao中的findAll方法即可.</p>
+<p>下面通过一个栗子来学习一下吧!</p>
+<blockquote>
+<p>例如:我们要在货物表中根据合同的ID查询货物.但显示的数据中包括合同表中的数据.这时我们就需要同时查询合同表和货物表两张表.</p>
+<p>原生的SQL语句:select * from contract_product_c where contract_id=’’;</p>
+<p>JPA:需要两表连接查询:from ContractProduct cp where cp.contract.id = ?;</p>
+</blockquote>
+                      
+                    </p>
                     
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/10/09/ClassInitialization/">ClassInitialization</a></h4>
-                            
-                            <p><time datetime="2018-10-09T13:40:12.000Z"><a href="/2018/10/09/ClassInitialization/">2018-10-09</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/10/09/MethodHandle/">MethodHandle</a></h4>
-                            
-                            <p><time datetime="2018-10-09T13:39:52.000Z"><a href="/2018/10/09/MethodHandle/">2018-10-09</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/10/03/Datatable/">Datatable</a></h4>
-                            
-                            <p><time datetime="2018-10-03T02:14:50.000Z"><a href="/2018/10/03/Datatable/">2018-10-03</a></time></p>
-                        </div>
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/10/Many/">Read More...</a>
+                    </p>
                     
                 </div>
-            </div>    
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2017/09/09/Jpa/">SpringData Jpa</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2017-09-09T05:46:21.000Z" itemprop="datePublished">
+          2017-09-09
+      </time>
+    
+    
+    | 
+    <a href='/tags/Jpa/'>Jpa</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <ol>
+<li><h5 id="SpringData-Jpa的环境搭建"><a href="#SpringData-Jpa的环境搭建" class="headerlink" title="SpringData Jpa的环境搭建"></a>SpringData Jpa的环境搭建</h5><ul>
+<li>如果是Maven项目的话,添加以下依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.9.0.RELEASE&lt;/version&gt;</span><br><span class="line">			&lt;!-- &lt;version&gt;1.10.5.RELEASE&lt;/version&gt; --&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>由于SpringData Jpa使用了动态代理(JDK&amp;Cglib),因此我们在DAO中只需提供接口即可实现与数据库进行交互.</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2017/09/09/Jpa/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <nav class="pagination" role="pagination">
+          <a class="pull-left" href="/">← Newer Posts</a>
+          
+        </nav>
     </div>
-</section> 
-
+</section>
 <section id="statement">
     <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
         <div class="row">
@@ -260,6 +309,8 @@
         </div>
     </div>
 </section>
+<!-- ============================ END Content =========================== -->
+
       
 <!-- ============================ Footer =========================== -->
 

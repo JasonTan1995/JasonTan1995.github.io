@@ -103,6 +103,8 @@
 				    
 				    <li><a href="/categories/dubbo/" class="animsition-link">dubbo<small>(1)</small></a></li>
 				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(2)</small></a></li>
+				    
 				    <li><a href="/categories/js/" class="animsition-link">js<small>(3)</small></a></li>
 				    
 				</ul>
@@ -211,6 +213,82 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/10/09/ClassInitialization/">ClassInitialization</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-10-09T13:40:12.000Z" itemprop="datePublished">
+          2018-10-09
+      </time>
+    
+    
+    | 
+    <a href='/tags/java/'>java</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        类加载机制
+虚拟机把描述类的数据从Class文件加载到内存，并对数据进行验证，转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。
+
+​         在Java中，类型的加载，连接和初始化过程都是在程序运行期间完成的，这种策略虽然会令类加载时稍微增加一些性能开销，但是会为Java程序提供高度的灵活性，Java里天生可以动态扩展的语言特性就是依赖运行期动态加载和动态连接这个特点实现的。
+类加载的时机
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/10/09/ClassInitialization/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/10/09/MethodHandle/">MethodHandle</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-10-09T13:39:52.000Z" itemprop="datePublished">
+          2018-10-09
+      </time>
+    
+    
+    | 
+    <a href='/tags/java/'>java</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        Java MethodHandle​       Java7在JSR 292中增加了对动态类型语言的支持，使得java也可以像C语言那样将方法作为参数传递。
+​       在java.lang.invoke包中MethodHandle作用类似于反射中的Method类，但它比Method类要更加灵活和轻量级。
+​       Reflection是java api层面的反射调用，而MethodHandle则是jvm层面支持调用。因此Re
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/10/09/MethodHandle/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -532,91 +610,9 @@ $timeout服务语法格式:$timeout(函数,间隔时间(单位为毫秒));但该
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/09/10/Many/">SpringData Jpa(多表关联查询)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-09-10T05:59:56.000Z" itemprop="datePublished">
-          2017-09-10
-      </time>
-    
-    
-    | 
-    <a href='/tags/Jpa/'>Jpa</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <h4 id="SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification"><a href="#SpringData-JPA的多表关联查询-可以使用JPQL-Specification-原生SQL-这里说一下为什么要用Specification" class="headerlink" title="SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification"></a>SpringData JPA的多表关联查询,可以使用JPQL,Specification,原生SQL.这里说一下为什么要用Specification</h4><p>因为如果是使用JPQL或者SQL查询的话,要另外在Dao接口中的方法定义,而如果使用Specification的话,我们只需要封装好条件,再把条件放进Dao中的findAll方法即可.</p>
-<p>下面通过一个栗子来学习一下吧!</p>
-<blockquote>
-<p>例如:我们要在货物表中根据合同的ID查询货物.但显示的数据中包括合同表中的数据.这时我们就需要同时查询合同表和货物表两张表.</p>
-<p>原生的SQL语句:select * from contract_product_c where contract_id=’’;</p>
-<p>JPA:需要两表连接查询:from ContractProduct cp where cp.contract.id = ?;</p>
-</blockquote>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/09/10/Many/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/09/09/Jpa/">SpringData Jpa</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-09-09T05:46:21.000Z" itemprop="datePublished">
-          2017-09-09
-      </time>
-    
-    
-    | 
-    <a href='/tags/Jpa/'>Jpa</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <ol>
-<li><h5 id="SpringData-Jpa的环境搭建"><a href="#SpringData-Jpa的环境搭建" class="headerlink" title="SpringData Jpa的环境搭建"></a>SpringData Jpa的环境搭建</h5><ul>
-<li>如果是Maven项目的话,添加以下依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.9.0.RELEASE&lt;/version&gt;</span><br><span class="line">			&lt;!-- &lt;version&gt;1.10.5.RELEASE&lt;/version&gt; --&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>由于SpringData Jpa使用了动态代理(JDK&amp;Cglib),因此我们在DAO中只需提供接口即可实现与数据库进行交互.</p>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/09/09/Jpa/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
           
-          
+          <a class="pull-right" href="/page/2/">Older Posts →</a>
         </nav>
     </div>
 </section>
