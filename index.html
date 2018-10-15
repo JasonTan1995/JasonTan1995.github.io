@@ -97,7 +97,9 @@
 				    
 				    <li><a href="/categories/Java/" class="animsition-link">Java<small>(1)</small></a></li>
 				    
-				    <li><a href="/categories/Spring/" class="animsition-link">Spring<small>(3)</small></a></li>
+				    <li><a href="/categories/Quartz/" class="animsition-link">Quartz<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Spring/" class="animsition-link">Spring<small>(4)</small></a></li>
 				    
 				    <li><a href="/categories/Web服务器/" class="animsition-link">Web服务器<small>(1)</small></a></li>
 				    
@@ -213,6 +215,80 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/10/15/QuartzSpring/">关于Quartz的Job 不能被注入以及SpringAop对Job失效</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-10-15T14:15:33.000Z" itemprop="datePublished">
+          2018-10-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/Quartz/'>Quartz</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        关于Quartz的Job 不能被注入以及SpringAop对Job失效
+Problem(问题)​        最近在工作遇到需要对Quartz的Job进行异常后将异常记录到数据库的操作，第一反应就想到了使用Spring的AOP，利用AfterThrowing来完成这个操作。理想是美好的，但现实却是骨感的。研究了好久都不生效。研究的过程发现居然还不能依赖注入，注入到的testService是空的。
+​        切面类（Aspect
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/10/15/QuartzSpring/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/10/15/SpringInject/">SpringInject</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-10-15T14:14:57.000Z" itemprop="datePublished">
+          2018-10-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/Spring/'>Spring</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        Spring DI(依赖注入)​     什么是Spring的依赖注入？
+
+举个例子，例如Service层需要用到Dao层的对象，这时Service如果想使用Dao层的对象就需要用硬编码的方式new一个对象出来了，这样做的耦合度会很高。而Spring就能通过依赖注入来解决这个问题。 控制反转（Inverse of Control）和依赖注入（Dependency Inject）其实是同一个概念的不同角度，通过把对象交给Spring管理，
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/10/15/SpringInject/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -525,83 +601,6 @@ $timeout服务语法格式:$timeout(函数,间隔时间(单位为毫秒));但该
                     
                     <p class="pull-right readMore">
                         <a href="/2018/01/10/Angularjs/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/11/11/nginx/">Nginx(初理解)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-11-11T08:57:53.000Z" itemprop="datePublished">
-          2017-11-11
-      </time>
-    
-    
-    | 
-    <a href='/tags/Web服务器/'>Web服务器</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <p>Nginx是一个高效,可靠的web服务和代理中间件.Nginx（发音同engine x）是一个网页服务器，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。</p>
-<ul>
-<li>高效体现在它能支持海量的并发请求.因此可以作为web服务器,它能够支持高达50000个并发连接数的响应.相比ApacheNginx使用更少资源支持更多的并发连接.</li>
-<li>配置简洁.</li>
-<li>能作为负载均衡服务器和邮件代理服务器.</li>
-</ul>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/11/11/nginx/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/10/09/dubbo/">dubbo(概述)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-10-09T10:50:11.000Z" itemprop="datePublished">
-          2017-10-09
-      </time>
-    
-    
-    | 
-    <a href='/tags/dubbo/'>dubbo</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <h3 id="Dubbo的出现"><a href="#Dubbo的出现" class="headerlink" title="Dubbo的出现"></a>Dubbo的出现</h3><p>由于国内电商发展规模越来越大,网站应用的规模不断扩大,常规的垂直应用架构已无法应对,所以分布式服务架构势在必行,我们需要一个治理系统确保架构有条不紊的演进.</p>
-<p>分布式架构:</p>
-<p><a href="https://imgchr.com/i/Cw1DhR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/05/09/Cw1DhR.md.png" alt="Cw1DhR.md.png"></a></p>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/10/09/dubbo/">Read More...</a>
                     </p>
                     
                 </div>
