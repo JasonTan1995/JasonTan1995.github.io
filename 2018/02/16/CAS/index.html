@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>CAS(执行原理以及流程) | JasonT</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="JasonT">
+    <meta name="author" content="JasonT">
+    <meta name="description" content="be Strange,be Smart" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="JasonT" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/CAS/" class="animsition-link">CAS<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Java/" class="animsition-link">Java<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Quartz/" class="animsition-link">Quartz<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Spring/" class="animsition-link">Spring<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/Web服务器/" class="animsition-link">Web服务器<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/dubbo/" class="animsition-link">dubbo<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/java/" class="animsition-link">java<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/js/" class="animsition-link">js<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">JasonT</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-02-16T12:25:57.000Z" itemprop="datePublished">
+          2018-02-16
+      </time>
+    
+    
+    | 
+    <a href='/tags/CAS/'>CAS</a>
+    
+    
+</span>
+                <h1>CAS(执行原理以及流程)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h4 id="什么是CAS"><a href="#什么是CAS" class="headerlink" title="什么是CAS?"></a>什么是CAS?</h4><blockquote>
+<p>CAS(Central Authentication Service),是耶鲁大学开发的单点登录系统(Single SignUp On)<br>是实现SSO单点登录的框架.并且SpringFrameWork的Spring security安全系统完美的支持CAS.</p>
+</blockquote>
+<h5 id="什么是SSO-Single-SignUp-on"><a href="#什么是SSO-Single-SignUp-on" class="headerlink" title="什么是SSO(Single SignUp on)?"></a>什么是SSO(Single SignUp on)?</h5><blockquote>
+<p>通常用于分布式系统中,分布式系统中每个系统的服务器都是各自独立的,因此在一个服务器中登录了,那么去到别的系统中,这个登录的信息就没有,因为每个服务器之间的Session是并不能共享的.所以单点登录的意思就是在一个系统中登录,在别的系统中就不需要再登录了.</p>
+</blockquote>
+<p>简单的来说:SSO使得在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+<h5 id="什么是Spring-security"><a href="#什么是Spring-security" class="headerlink" title="什么是Spring security?"></a>什么是Spring security?</h5><blockquote>
+<p>是一个用于Spring中的安全框架,能够和目前流行的Web容器无缝集成.它使用了Spring的方式提供了安全和认证安全服务.例如IOC容器以及AOP.</p>
+</blockquote>
+<h5 id="CAS的作用"><a href="#CAS的作用" class="headerlink" title="CAS的作用"></a>CAS的作用</h5><ol>
+<li>为多个Web应用提供单点登录基础设施,同时可以为非Web应用但拥有Web前端的功能服务提供单点登录的功能.</li>
+<li>简化了应用认证用户身份的流程.</li>
+<li>将用户身份认证集中于单一的Web应用(即一个服务器),让用户简化他们的密码管理,从而提高安全性.</li>
+</ol>
+<h5 id="CAS的大概流程"><a href="#CAS的大概流程" class="headerlink" title="CAS的大概流程"></a>CAS的大概流程</h5><ol>
+<li>用户首次登录访问时,CAS会创建一个位数很长的随机数(ticket).</li>
+<li>==CAS把这个ticket和成功登录的用户以及用户需要访问的Service联系起来.但这个ticket是个一次性的凭证;==</li>
+<li>这个ticket==仅仅用于当前登录的这个用户以及这个用户要访问的Service,仅能使用一次,使用之后就马上过期==;即ticket通过验证,CAS立即删除这个ticket,使用后就不能再次使用了.==这样就可以保证它的安全性了.==</li>
+</ol>
+<p><img src="https://ws1.sinaimg.cn/large/6b297ce5gy1frddmp45pxj20e20ar762.jpg" alt=""></p>
+<h5 id="CAS的执行部分分析"><a href="#CAS的执行部分分析" class="headerlink" title="CAS的执行部分分析"></a>CAS的执行部分分析</h5><p><strong>CAS包含两个部分:CAS Server和CAS Client分别需要独立部署,主要负责对用户认证的工作;</strong></p>
+<ol>
+<li>CAS Client负责处理对客户端受保护资源的访问请求,需要登录时,CAS Client会解析HTTP请求中是否包含ticket信息,如果没有,表示还没有认证会重定向到CAS Server</li>
+<li>CAS Server会对用户的登录信息进行认证,认证成功后CAS Server会随机生成一个ticket(该ticket是一个随机位数),并带着这个ticket重定向到CAS Client.</li>
+<li>CAS Client与CAS Server再次进行验证.并根据ticket可以获取到用户的名字.</li>
+</ol>
+<p><img src="https://ws1.sinaimg.cn/large/6b297ce5gy1frdfcrifesj20nn0cxn1h.jpg" alt=""></p>
+<h4 id="CAS详细执行流程-根据上图步骤"><a href="#CAS详细执行流程-根据上图步骤" class="headerlink" title="CAS详细执行流程(根据上图步骤)"></a>CAS详细执行流程(根据上图步骤)</h4><ol>
+<li>浏览器发送HTTP请求到系统A中,系统A解析HTTP请求中是否有ticket(票据),没有的话就重定到认证中心.</li>
+<li>到认证中心后查看是否有全局票据,如果有就会生成一个临时票据并附带着重定向到系统A中,重定向系统A中,系统A发现没有登录,与认证中心建立通信,拿着临时票据到认证中心进行认证.认证有效,说明用户已经登录,允许用户访问资源.说明该用户已经登录,允许访问资源.</li>
+<li>如果没有,用户进入到登录页面进行登录,登录认证成功,生成一个临时票据并附带着重定向到系统A中,认证中心此时也会生成一个全局票据.重定向系统A中,系统A发现没有登录,与认证中心建立通信,拿着临时票据到认证中心进行认证.认证有效,说明用户已经登录,允许用户访问资源.</li>
+</ol>
+<h4 id="已经登录用户首次访问分布式中其他系统时"><a href="#已经登录用户首次访问分布式中其他系统时" class="headerlink" title="已经登录用户首次访问分布式中其他系统时:"></a>已经登录用户首次访问分布式中其他系统时:</h4><p><img src="https://ws1.sinaimg.cn/large/6b297ce5gy1frdg0rw3ywj20ef0eb0vj.jpg" alt=""></p>
+<ol>
+<li><p>浏览器访问另一应用B需登录受限资源，此时进行登录检查，发现未登录，然后进行获取票据操作，发现没有票据。</p>
+</li>
+<li><p>系统B发现该请求需要登录，将请求重定向到认证中心，获取全局票据操作，获取全局票据，可以获得，认证中心发现已经登录。</p>
+</li>
+<li><p>认证中心发放临时票据(令牌)，并携带该令牌重定向到系统B。</p>
+</li>
+<li><p>此时再次进行登录检查，发现未登录，然后再次获取票据操作，此时可以获得票据(令牌)，系统B与认证中心通信，验证令牌有效,证明用户已登录。</p>
+</li>
+<li><p>系统B将受限资源返回给客户端。</p>
+</li>
+</ol>
+<h4 id="关于登录状态"><a href="#关于登录状态" class="headerlink" title="关于登录状态"></a>关于登录状态</h4><ol>
+<li><p>用户到认证中心登录后，用户和认证中心之间建立起了会话，我们把这个会话称为全局会话。当用户后续访问系统应用时，我们不可能每次应用请求都到认证中心去判定是否登录，这样效率非常低下.</p>
+</li>
+<li><p>可以在系统应用和用户浏览器之间建立起局部会话，局部会话保持了客户端与该系统应用的登录状态，局部会话依附于全局会话存在，全局会话消失，局部会话必须消失</p>
+</li>
+</ol>
+<ol start="3">
+<li>用户访问应用时，首先判断局部会话是否存在，如存在，即认为是登录状态，无需再到认证中心去判断。如不存在，就重定向到认证中心判断全局会话是否存在，如存在,该应用与客户端就建立起它们之间局部会话，下次请求该应用，就不去认证中心验证了。</li>
+</ol>
+<h5 id="那么系统是如何发现请求需要登录并重定向到认证中心呢"><a href="#那么系统是如何发现请求需要登录并重定向到认证中心呢" class="headerlink" title="那么系统是如何发现请求需要登录并重定向到认证中心呢?"></a>那么系统是如何发现请求需要登录并重定向到认证中心呢?</h5><p>用户通过浏览器地址栏访问系统，系统(也可以称为CAS客户端)去Cookie中拿JSESSION，即在Cookie中维护的当前回话session的id，如果拿到了，说明用户已经登录，如果未拿到，说明用户未登录</p>
+<h5 id="登录成功后-认证中心会重定向到系统-认证通过后的票据是如何附加发送给系统的"><a href="#登录成功后-认证中心会重定向到系统-认证通过后的票据是如何附加发送给系统的" class="headerlink" title="登录成功后,认证中心会重定向到系统,认证通过后的票据是如何附加发送给系统的?"></a>登录成功后,认证中心会重定向到系统,认证通过后的票据是如何附加发送给系统的?</h5><p>以参数的形式附加在地址栏上.将票据以ticket为参数名的方式通过地址栏发送给系统.</p>
+<h5 id="登录别的系统时，认证中心是如何判断用户已经登录的"><a href="#登录别的系统时，认证中心是如何判断用户已经登录的" class="headerlink" title="登录别的系统时，认证中心是如何判断用户已经登录的?"></a>登录别的系统时，认证中心是如何判断用户已经登录的?</h5><p>答：在系统A登录成功后，用户和认证中心之间建立起了全局会话，这个全局会话就是TGT(Ticket Granting Ticket)，TGT位于CAS服务器端，TGT并没有放在Session中，也就是说，CAS全局会话的实现并没有直接使用Session机制，而是利用了Cookie自己实现的，这个Cookie叫做TGC(Ticket Granting Cookie)，它存放了TGT的id,保存在用户浏览器上。</p>
+<p>用户发送登录系统B的请求，首先会去Cookie中拿JSESSION，因为系统B并未登录过，session会话还未创建，JSESSION的值是拿不到的，然后将请求重定向到CAS认证中心，CAS认证中心先去用户浏览器中拿TGC的值，也就是全局会话id，如果存在则代表用户在认证中心已经登录，附带上认证令牌重定向到系统B</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2018/08/14/fail-fast/" style="float: left;">
+        ← fail-fast
+    </a>
+    
+    
+    <a class="pull-right" href="/2018/01/15/angularjs-Service/">
+        Angularjs(内置服务) →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+</script>
+</div>
+    </div>
+</section>
+
+
+      <!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+			<span id="busuanzi_container_site_uv"> 
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+            </span>
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By JasonT. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
