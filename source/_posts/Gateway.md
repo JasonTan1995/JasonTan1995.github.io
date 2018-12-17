@@ -31,6 +31,8 @@ API网关模式意味着我们需要把API网关放到微服务的最前端,并�
 
 ![](http://blog.didispace.com/content/images/posts/hzf-ms-apigateway-1-11.png)
 
+<!-- more-->
+
 假设现在有三个模块:订单,用户,发票每个模块都需要返回不同的JSON响应,而且客户端也需要查看这些返回的响应.现在有两个方法来解决:
 
 第一种方式:客户端按顺序的向客户,订单,发票模块发送请求.
