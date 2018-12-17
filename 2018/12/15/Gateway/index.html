@@ -211,6 +211,24 @@
 <p>API网关模式意味着我们需要把API网关放到微服务的最前端,并且要让API网关变成由应用发起每个请求的入口.</p>
 <h5 id="3-优化后的端点"><a href="#3-优化后的端点" class="headerlink" title="3. 优化后的端点"></a>3. 优化后的端点</h5><p>同样地举个例子来说明一下</p>
 <p><img src="http://blog.didispace.com/content/images/posts/hzf-ms-apigateway-1-11.png" alt=""></p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<a id="more"></a> 
+<p>=======<br><!-- more--></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>4353ddb05195f15cc5ff17bbcf0b873c3900fce9</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <p>假设现在有三个模块:订单,用户,发票每个模块都需要返回不同的JSON响应,而且客户端也需要查看这些返回的响应.现在有两个方法来解决:</p>
 <p>第一种方式:客户端按顺序的向客户,订单,发票模块发送请求.</p>
 <p>第二种方式:使用API网关来抽象客户端实现的复杂性,由API网关公开一个特定的端点,然后在这个端点上产生请求,最后在消费完微服务之后返回给客户端一个唯一的响应.</p>
