@@ -203,15 +203,16 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<h4 id="API-网关"><a href="#API-网关" class="headerlink" title="API 网关"></a>API 网关</h4><h5 id="1-为什么需要API网关"><a href="#1-为什么需要API网关" class="headerlink" title="1.为什么需要API网关"></a>1.为什么需要API网关</h5><p>举个比较生动的例子,一个大型的演奏乐队中,总是需要一个指挥家.乐手负责演奏自己的乐器,而这个指挥家(API网关)可以以某种方式来协调我们的架构是如何处理请求.</p>
+<a id="more"></a>
 <h5 id="2-API网关模式-API-Gateway-Pattern"><a href="#2-API网关模式-API-Gateway-Pattern" class="headerlink" title="2. API网关模式(API Gateway Pattern)"></a>2. API网关模式(API Gateway Pattern)</h5><p>API网关其实跟设计模式中的Facade模式以及代理模式相似.</p>
 <p>为什么与Facade模式相似?</p>
 <p>举个非常简单易懂的例子:一个电源总开关可以控制四盏灯,一个风扇,一台空调和一台电视机的启动和关闭.该电源总开关可以同时控制上述所有电器设备,电源总开关即为这个系统的外观模式设计.</p>
 <p>从以上的例子可以看出很大程度上降低了复杂性,Facade模式定义了一个高层接口,这个接口使得子系统更加容易引用.客户端只需要与接口交互,客户端与子系统的复杂性由该接口的实现类来实现,进而降低了系统的耦合度.</p>
+<!-- more-->
 <p><img src="http://my.csdn.net/uploads/201205/04/1336117360_9418.jpg" alt=""></p>
 <p>API网关模式意味着我们需要把API网关放到微服务的最前端,并且要让API网关变成由应用发起每个请求的入口.</p>
 <h5 id="3-优化后的端点"><a href="#3-优化后的端点" class="headerlink" title="3. 优化后的端点"></a>3. 优化后的端点</h5><p>同样地举个例子来说明一下</p>
 <p><img src="http://blog.didispace.com/content/images/posts/hzf-ms-apigateway-1-11.png" alt=""></p>
-<a id="more"></a>
 <p>假设现在有三个模块:订单,用户,发票每个模块都需要返回不同的JSON响应,而且客户端也需要查看这些返回的响应.现在有两个方法来解决:</p>
 <p>第一种方式:客户端按顺序的向客户,订单,发票模块发送请求.</p>
 <p>第二种方式:使用API网关来抽象客户端实现的复杂性,由API网关公开一个特定的端点,然后在这个端点上产生请求,最后在消费完微服务之后返回给客户端一个唯一的响应.</p>
@@ -234,6 +235,10 @@
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2019/02/17/ArrayList源码分析/" style="float: left;">
+        ← ArrayList源码分析
+    </a>
     
     
     <a class="pull-right" href="/2018/10/15/QuartzSpring/">

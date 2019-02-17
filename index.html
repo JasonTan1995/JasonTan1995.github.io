@@ -220,6 +220,85 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2019/02/17/LinkedList源码分析/">LinkedList源码分析</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2019-02-17T13:52:36.000Z" itemprop="datePublished">
+          2019-02-17
+      </time>
+    
+    
+    | 
+    <a href='/tags/Java/'>Java</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h4 id="LinkedList-源码分析"><a href="#LinkedList-源码分析" class="headerlink" title="LinkedList 源码分析"></a>LinkedList 源码分析</h4><p><img src="https://ws1.sinaimg.cn/large/6b297ce5gy1g08ed58cu2j20rs0etq6z.jpg" alt=""></p>
+<h5 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h5><hr>
+<ul>
+<li>LinkedList的底层是由一个双向链表实现的。</li>
+<li>与ArrayList不同的是，LinkedList没有扩容机制；而是通过节点之间的前驱与后继的引用来存储元素。</li>
+<li>在链表的头部与尾部插入与删除元素的效率极高，但在指定位置插入或删除效率就一般了。原因是需要定位到某个节点，时间复杂度为<code>o(N)</code>。</li>
+<li>是一个非线程安全的集合类。</li>
+</ul>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2019/02/17/LinkedList源码分析/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2019/02/17/ArrayList源码分析/">ArrayList源码分析</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2019-02-17T13:47:03.000Z" itemprop="datePublished">
+          2019-02-17
+      </time>
+    
+    
+    | 
+    <a href='/tags/Java/'>Java</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h4 id="ArrayList-源码分析"><a href="#ArrayList-源码分析" class="headerlink" title="ArrayList 源码分析"></a>ArrayList 源码分析</h4><p><img src="https://ws1.sinaimg.cn/large/6b297ce5gy1g03p9fsqpaj20mn0d8dl6.jpg" alt=""></p>
+<h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><hr>
+<p>ArrayList 是比较常用的一个类,它的底层是通过一个定长数组来实现的.ArrayList允许空值以及重复元素,当大量元素插入时,会通过扩容机制重新生成一个更加大的数组,因此其核心也是扩容机制.另外,正因为是底层是基于数组实现的,访问元素的效率是非常高的.(<code>时间复杂度为o(1)</code>).</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2019/02/17/ArrayList源码分析/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2018/12/15/Gateway/">Gateway</a></h3>
                     <span>
                         <span class="post-meta">
@@ -239,14 +318,6 @@
                     <p>
                       
                         <h4 id="API-网关"><a href="#API-网关" class="headerlink" title="API 网关"></a>API 网关</h4><h5 id="1-为什么需要API网关"><a href="#1-为什么需要API网关" class="headerlink" title="1.为什么需要API网关"></a>1.为什么需要API网关</h5><p>举个比较生动的例子,一个大型的演奏乐队中,总是需要一个指挥家.乐手负责演奏自己的乐器,而这个指挥家(API网关)可以以某种方式来协调我们的架构是如何处理请求.</p>
-<h5 id="2-API网关模式-API-Gateway-Pattern"><a href="#2-API网关模式-API-Gateway-Pattern" class="headerlink" title="2. API网关模式(API Gateway Pattern)"></a>2. API网关模式(API Gateway Pattern)</h5><p>API网关其实跟设计模式中的Facade模式以及代理模式相似.</p>
-<p>为什么与Facade模式相似?</p>
-<p>举个非常简单易懂的例子:一个电源总开关可以控制四盏灯,一个风扇,一台空调和一台电视机的启动和关闭.该电源总开关可以同时控制上述所有电器设备,电源总开关即为这个系统的外观模式设计.</p>
-<p>从以上的例子可以看出很大程度上降低了复杂性,Facade模式定义了一个高层接口,这个接口使得子系统更加容易引用.客户端只需要与接口交互,客户端与子系统的复杂性由该接口的实现类来实现,进而降低了系统的耦合度.</p>
-<p><img src="http://my.csdn.net/uploads/201205/04/1336117360_9418.jpg" alt=""></p>
-<p>API网关模式意味着我们需要把API网关放到微服务的最前端,并且要让API网关变成由应用发起每个请求的入口.</p>
-<h5 id="3-优化后的端点"><a href="#3-优化后的端点" class="headerlink" title="3. 优化后的端点"></a>3. 优化后的端点</h5><p>同样地举个例子来说明一下</p>
-<p><img src="http://blog.didispace.com/content/images/posts/hzf-ms-apigateway-1-11.png" alt=""></p>
                       
                     </p>
                     
@@ -529,82 +600,6 @@ Datatables官方网站：htt
                     
                     <p class="pull-right readMore">
                         <a href="/2018/08/14/fail-fast/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/02/16/CAS/">CAS(执行原理以及流程)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-02-16T12:25:57.000Z" itemprop="datePublished">
-          2018-02-16
-      </time>
-    
-    
-    | 
-    <a href='/tags/CAS/'>CAS</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        什么是CAS?
-CAS(Central Authentication Service),是耶鲁大学开发的单点登录系统(Single SignUp On)是实现SSO单点登录的框架.并且SpringFrameWork的Spring security安全系统完美的支持CAS.
-
-什么是SSO(Single SignUp on)?
-通常用于分布式系统中,分布式系统中每个系统的服务器都是各自独立的,因此在一个服务器中登录了,那么去到别的系统中,
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/02/16/CAS/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/01/15/angularjs-Service/">Angularjs(内置服务)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-01-15T13:17:06.000Z" itemprop="datePublished">
-          2018-01-15
-      </time>
-    
-    
-    | 
-    <a href='/tags/js/'>js</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        AngularJs 内置服务Angular.js 为我们提供了一些内置的方法,而且使用起来很方便.
-$timeout服务语法格式:$timeout(函数,间隔时间(单位为毫秒));但该方法只会调用一次.
-123456789101112131415161718192021222324252627282930313233&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;    &lt;meta cha
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/01/15/angularjs-Service/">Read More...</a>
                     </p>
                     
                 </div>
